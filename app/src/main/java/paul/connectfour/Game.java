@@ -73,16 +73,16 @@ public class Game {
         int minColumnIndex = columnIndex - 3 < 0 ? 0 : columnIndex - 3;
         int maxColumnIndex = columnIndex + 3 > 6 ? 6 : columnIndex + 3;
 
-        int nextToEachOther = 0;
+        int sumNextToEachOther = 0;
         for (int n = 0; n < this.gameState[columnIndex].length; n++) {
             for (int m = minColumnIndex; m <= maxColumnIndex; m++) {
                 int field = this.gameState[m][n];
                 if (field == player) {
-                    nextToEachOther++;
+                    sumNextToEachOther++;
                 } else {
-                    nextToEachOther = 0;
+                    sumNextToEachOther = 0;
                 }
-                if (nextToEachOther == 4) {
+                if (sumNextToEachOther == 4) {
                     return player;
                 }
             }
